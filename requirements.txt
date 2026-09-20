@@ -1,0 +1,10 @@
+torch>=2.2.0,<=2.6.0
+torchaudio>=2.2.0,<=2.6.0
+chatterbox-tts>=0.1.7
+gradio>=5.0.0
+numpy>=1.24.0,<2.0.0
+diffusers>=0.29.0
+transformers>=4.40.0
+librosa>=0.11.0
+tqdm>=4.66.0
+requests>=2.31.0

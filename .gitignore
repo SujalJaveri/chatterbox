@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+*.venv
+
+# Generated Audio Outputs
+output.wav
+output_*.wav
+outputs/
+take_*.wav
+combined_output.wav
+*.tmp
+
+# Caches & Logs
+.cache/
+*.log
+.system_generated/
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
