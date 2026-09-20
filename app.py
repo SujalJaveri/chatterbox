@@ -11,6 +11,7 @@ import time
 from pathlib import Path
 
 import gradio as gr
+import spaces
 import torch
 import torchaudio as ta
 
@@ -48,6 +49,7 @@ def get_cached_conditionals(voice_file, exaggeration=0.0):
             CURRENT_VOICE_FILE = str(DEFAULT_VOICE)
 
 
+@spaces.GPU
 def generate_single_voice(text, voice_audio, temperature, exaggeration):
     """Generates audio for a single prompt."""
     if not text or not text.strip():
@@ -70,6 +72,7 @@ def generate_single_voice(text, voice_audio, temperature, exaggeration):
         return None, f"Error during generation: {str(e)}"
 
 
+@spaces.GPU
 def generate_batch_voice(lines_text, voice_audio, temperature, exaggeration):
     """Generates audio for multiple lines or takes."""
     lines = [line.strip() for line in (lines_text or "").split("\n") if line.strip()]
@@ -185,5 +188,5 @@ with gr.Blocks(title="Chatterbox AI Voice Generator") as demo:
     )
 
 if __name__ == "__main__":
-    # Launch local server and automatically open the default web browser
-    demo.launch(inbrowser=True, server_port=7860)
+    # On Hugging Face Spaces, launch without inbrowser; the platform serves the UI
+    demo.launch()
